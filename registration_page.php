@@ -7,6 +7,26 @@
   $db_password = 'simplonco';
   $db_name = 'EVAL-RNCP-B';
 
+  if (isset($_POST['register_btn'])) {
+    $domasylnumber = mysql_real_escape_string($_POST['domasylnumber']);
+    $domasylnumber2 = mysql_real_escape_string($_POST['domasylnumber']);
+    $surname = mysql_real_escape_string($_POST['surname']);
+    $firstname = mysql_real_escape_string($_POST['firstname']);
+
+    if ($domasylnumber == $domasylnumber2) {
+      // create user
+      $domasylnumber = md5($domasylnumber); //hash domasylnumber(password) before storing for security purposes
+      $sql = "INSERT INTO users(domasylnumber, surname, firstname) VALUES('$domasylnumber', '$surname', '$firstname')";
+      mysqli_query($db, $sql);
+      $_SESSION['message'] = "You are now logged in";
+      $_SESSION['domasylnumber']= $domasylnumber;
+      //header("location: home.php"); // redirect to home page
+    } else {
+      // failed
+      $_SESSION['message'] = "The two domasylnumber do not match";
+
+    }
+  }
 
 ?>
 
@@ -33,6 +53,10 @@
           <tr>
             <td>Dom Asyl Number:</td>
             <td><input type="text" name="domasylnumber" class="textInput" /></td>
+          </tr>
+          <tr>
+            <td>Dom Asyl Number:</td>
+            <td><input type="text" name="domasylnumber2" class="textInput" /></td>
           </tr>
           <tr>
             <td>Nom:</td>
