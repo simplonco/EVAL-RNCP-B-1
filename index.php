@@ -37,6 +37,16 @@ include_once 'dbconnect.php';
 		</div>
 	</div>
 </nav>
+<div class="container">
+	<div id="cheking-mail">
+		
+			<h1>Checking Mail Page for Asylum Seekers in Coallia</h1><br>
+			<h4>You have to click the "Login" button on the right corner and check your mail if you have or not by entering your Last Name and Asylum Number</h4>
+
+		
+	</div>
+	
+</div>
 
 
 <script src="js/jquery-1.10.2.js"></script>

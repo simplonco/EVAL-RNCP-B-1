@@ -75,7 +75,7 @@ if (isset($_POST['login'])) {
 					</div>
 
 					<div class="form-group">
-						<input type="submit" name="login" value="Login" class="btn btn-primary" />
+						<input id="login" type="submit" name="login" value="Login" class="btn btn-primary" />
 					</div>
 				</fieldset>
 			</form>
